@@ -57,10 +57,17 @@ public class UserServiceTest {
     }
     @Test
     public void getUserRepeatsByLoginWhenZeroRepeats() {
-        String[] array = {"Marek, Andrzej"};
+        String[] array = {"Marek", "Andrzej"};
         UserService user = new UserService(array);
         final int result = user.getCountRepeatsByLogin("Tarek");
         Assert.assertEquals(0, result);
+    }
+    @Test
+    public void getUserRepeatsByLoginWhenNoRepeats(){
+        String [] array ={"Marek"};
+        UserService user = new UserService(array);
+        final int result = user.getCountRepeatsByLogin("Tarek");
+        Assert.assertEquals(0,result);
     }
 
 
